@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1"> 
+        <title>Зворотній зв'язок</title>
+    </head>
+    <body>
+        <header class="logo">
+            <h1>
+            <a href="index.html"><img src="logo.jpg" alt="Логотип порталу" width ="200"></a>
+            <span style="color: rgb(24, 114, 24)"> Портал 4kids</span>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна сторінка</a></li>
+                    <li><a href ="#">Навчальні матеріали</a></li>
+                    <li><a href="courses.html">Наші курси</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form >
+            
+            <fieldset>
+                <legend>Персональна інформація</legend>
+                <label for = "parents-firstname">Ім'я матері/батька</label>
+                <input type="text" name="parents-firstname" id="parents-firstname" placeholder="Введіть своє ім'я"><br>
+                <label for = "parents-lastname">Прізвище матері/батька</label>
+                <input type="text" name="parents-lastname" id="parents-lastname" placeholder="Введіть своє прізвище"><br>
+                <label for = "email">Пошта матері/батька</label>
+                <input type="email" name="email" id="email" placeholder="Введіть свою пошту"><br>
+                <label for="child-age">Вік дитини</label>
+                <input type="number" name="child-age" id="child-age" placeholder="Введіть вік вашої дитини"><br>
+                <label for="child-gender">Стать дитини</label>
+                <input type="text" name="child-gender" id="child-gender" placeholder="Введіть стать дитини"><br>
+            </fieldset>
+            <label for="meta-feedback">Мета зворотнього зв'язку</label>
+            <select name="meta-feedback" id="meta-feedback"><br>
+                <option value="collaboration">Співпраця</option>
+                <option value="complaint">Скарга на неякісний контент</option>
+                <option value="proposal">Пропозиція</option>
+                <option value="mistake">Наявність помилки</option>
+            </select>
+            <label for="details">Детально</label>
+            <textarea name="details" id="details" cols="30" rows="5"></textarea><br>
+            <label for="checkbox">Даю дозвіл на обробку персональних даних</label>
+            <input type="checkbox" name="checkbox" id="checkbox"><br>
+            <button type="submit">Надіслати</button>
+            </form>
+        </main>
+    </body>
+</html>
