@@ -4,13 +4,129 @@
         <meta charset="utf-8">
         <meta name="viewport" content ="width=device-width, initial-scale=1"> 
         <title>Наші курси</title>
+        <style>
+            *
+            {
+                font-family: 'Comic Sans MS', fantasy;
+            }
+            .header
+            {
+                position:fixed;
+                top:0px;  
+                text-align: center;
+                z-index: 1;
+                
+            }
+            .name-of-portal
+            {
+                display: block;
+                margin-top: 10px;
+                font-size: 40px;
+            }
+            .grid-container
+            {
+                display:grid;
+                grid-template-columns: 300px 700px;
+                
+                column-gap: 70px;
+                row-gap: 30px;
+                justify-content:start;
+                margin-left: 20px;
+                margin-top: 150px;
+                
+                
+            }
+            .ad-bar
+            {
+                
+                grid-column:1/2;
+                justify-self:center;
+               
+            }
+            li[class*="course"]
+            {
+                
+                display: grid;
+                width: 700px;
+                border-right: 2px solid rgb(128, 47, 128);
+                border-left: 2px dashed rgb(128, 47, 128);
+                border-top: 2px solid rgb(128, 47, 128);
+                border-bottom: 2px solid rgb(128, 47, 128);
+                grid-column: 2/3;
+                justify-self: center;
+                margin-bottom: 20px;
+                border-radius: 10%;
+                padding: 40px;
+                
+            }
+          
+            h2
+            {
+                display:grid;
+                font-size: xx-large;
+                color:rgb(4, 44, 24)
+               
+            }
+            h3
+            {
+                font-weight: 800;
+                font-style: italic;
+                font-size: 30px;
+            }
+            img:hover
+            {
+                filter:saturate(150%);
+                animation: saturationPulse, 3s,infinite;
+            }
+            @keyframes saturationPulse
+            {
+            from{
+                filter:saturate(100%)
+            }    
+            to{
+                filter:saturate(150%)
+            }
+            }
+            nav
+            {
+               position: sticky;
+               top:50px;
+               margin-left: 280px;
+               margin-top:60px;
+               background-color: rgb(94, 168, 119,0.7);
+               border: 3px solid rgb(29, 71, 43);
+               padding-right:30px;
+               border-radius: 20px;
+            }
+            a:link
+            {
+                color:rgb(4, 44, 24) 
+            }
+            a:visited
+            {
+                color:rgb(107, 15, 44)
+            }
+           
+           button
+            {
+                border:rgb(4, 44, 24) 2px solid;
+                padding: 10px;
+                border-radius: 13px;
+                background-color:rgb(94, 168, 119,0.7) ;
+                box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+                            2px 3px 3px 1px rgb(32, 188, 125);
+            }
+        </style>
     </head>
     <body>
-        <header class="logo">
-            <h1>
-            <a href="index.html"><img src="logo.jpg" alt="Логотип порталу" width ="200"></a>
-            <span style="color: rgb(24, 114, 24)"> Портал 4kids</span>
-            </h1>
+        
+       <header class="header">
+           <h1 class="logo">
+                <a href ="index.html"><img src="logo.jpg" alt = "Логотип порталу" width="200"></a></h1>
+                <h1 class="name-of-portal">
+                <span style="color: rgb(4, 44, 24)"> Портал 4kids</span></h1>
+           
+        </header>
             <nav>
                 <ul>
                     <li><a href="index.html">Головна сторінка</a></li>
@@ -18,13 +134,68 @@
                     <li><a href="feedback.html">Зворотній зв'язок</a></li>
                 </ul>
             </nav>
-        </header>
+        <div class="grid-container">
+             <aside class="ad-bar">
+           <p><a href="#"><img src="ad.jpg" alt="Фото реклами" width="200">
+                    <h3><span style="color:rgb(42, 41, 41)">Як обрати зубну щітку та пасту дитині: поради дитячого...</span></h3>
+                    <span style="color:rgb(42, 41, 41)">У сьогоднішньому матеріалі ми підготували поради
+                         дитячої лікарки-стоматолога Лесі Шеренговської щодо вибору зубної ...</span>
+                        </a>
+                        </p>
+                        <p>
+                            <a href="#"><img src="ad2.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)">Як допомогти дитині стати самостійною у шкільному віці – ...</span></h3>
+                            <span style="color:rgb(42, 41, 41)">Самостійність не з’являється раптово — вона формується крок за кроком. 
+                                У молодшому шкільному віці діти ...</span>
+                            </a>
+                        </p> 
+                        <p>
+                            <a href="#"><img src="ad3.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)">4 ігрові вправи для малюків: мовлення, увага й логіка без ... </span></h3>
+                            <span style="color:rgb(42, 41, 41)">Чи можна навчати дошкільнят без примусу? Так! Достатньо зробити навчання грою.
+                                </span>
+                            </a>
+                        </p> 
+                         <p>
+                            <a href="#"><img src="ad4.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)">Вчимо годинник із дошкільнятами: як пояснити аналоговий ... </span></h3>
+                            <span style="color:rgb(42, 41, 41)">Уміння читати годинник — важливий крок у розвитку дитини. 
+                                Ми підготували прості пояснення, міні-ігри та приклади з повсякденного життя, 
+                                щоб дошкільнята легко засвоїли поняття часу й навчились розрізняти частини ...
+                                </span>
+                            </a>
+                        </p> 
+                         <p>
+                            <a href="#"><img src="ad5.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)">Волонтерство для дітей в Україні: ідеї, правила та приклади</span></h3>
+                            <span style="color:rgb(42, 41, 41)">Волонтерство для дітей — це не лише добрі справи, а й важливий досвід, що навчає відповідальності, 
+                                співчуттю та командній роботі. У статті ви знайдете понад 30 ідей дитячого волонтерства в Україні: від творчих та ...
+                                </span>
+                            </a>
+                        </p> 
+                        <p>
+                            <a href="#"><img src="ad6.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)"> Топ-10 найпоширеніших помилок на ЗНО (НМТ) з математики ...</span></h3>
+                            <span style="color:rgb(42, 41, 41)">ЗНО з математики — це випробування, де легко втратити бали через неуважність або типові помилки. 
+                                У цій статті ми зібрали 10 найпоширеніших промахів учнів, пояснили, як їх розпізнати, та дали прості поради, які ...
+                                </span>
+                            </a>
+                        </p> 
+                         <p>
+                            <a href="#"><img src="ad7.avif" alt="Фото реклами" width="200">
+                            <h3><span style="color:rgb(42, 41, 41)">Що потрібно покласти в портфель першокласнику: повний список ...</span></h3>
+                            <span style="color:rgb(42, 41, 41)">Готуєте дитину до першого класу? Дізнайтеся, що обов’язково покласти у портфель, як обрати канцтовари, 
+                                засоби гігієни, змінний одяг і перекус, а також — як зробити підготовку до школи приємною сімейною справою. Наш ...
+                                </span>
+                            </a>
+                        </p> 
+        </aside>
         <main>
             <h2>
                 Наші курси
             </h2>
             <ul>
-                <li>
+                <li class="general-course">
                     <h3>Загальний курс "Всебічний курс по підготовці до школи"</h3>
                     <img src="courseForAll.jpg" alt ="Фото до курсу" width="200">
                     <p>Цей курс включає всі основні напрямки, що потрібно розглянути, щоб дитина була готова до школи</p>
@@ -240,7 +411,7 @@
                     </table>
                     <p><button type="button"><b>Записатись на курс</b></button></p> 
                 </li>
-                <li>
+                <li class="mini-course-math">
                     <h3>Міні-курс "Математична мандрівка"</h3>
                     <img src="courseMaths.jpg" alt="Фото до курсу" width="200">
                     <p>Цей курс охоплює базове та поглиблене вивчення математики.</p>
@@ -326,7 +497,7 @@
                      </table>
                       <p><button type="button"><b>Записатись на курс</b></button></p> 
                 </li>
-                <li>
+                <li class="mini-course-world">
                      <h3>Міні-курс "Світ навколо мене"</h3>
                     <img src="courseNature.jpg" alt="Фото до курсу" width="200">
                     <p>Цей курс охоплює базове вивчення складових довкілля.</p>
@@ -395,7 +566,7 @@
                     </table>
                     <p><button type="button"><b>Записатись на курс</b></button></p> 
                 </li>
-                <li>
+                <li class="mini-course-language">
                      <h3>Міні-курс "Мовленнєвий розвиток"</h3>
                     <img src="courseLanguage.png" alt="Фото до курсу" width="200">
                     <p>Цей курс охоплює базове вивчення букв,складів, навчання принципів читання.</p>
@@ -464,7 +635,7 @@
                     </table>
                      <p><button type="button"><b>Записатись на курс</b></button></p> 
                 </li>
-                <li>
+                <li class="mini-course-become-student">
                     <h3>Міні-курс "Я готуюсь до школи"</h3>
                     <img src="courseSchool.png" alt="Фото до курсу" width="200">
                     <p>Цей курс охоплює підготовку до режиму навчання, розвиток концентрації та пам'яті.</p>
@@ -528,4 +699,6 @@
                 </li>
             </ul>
         </main>
+       
+        </div>
     </body>

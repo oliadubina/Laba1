@@ -4,21 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content ="width=device-width, initial-scale=1"> 
         <title>Зворотній зв'язок</title>
+        <link rel="stylesheet" href="feedback.css">
     </head>
     <body>
-        <header class="logo">
-            <h1>
-            <a href="index.html"><img src="logo.jpg" alt="Логотип порталу" width ="200"></a>
-            <span style="color: rgb(24, 114, 24)"> Портал 4kids</span>
-            </h1>
+       <header class="header">
+            <h1 class="logo">
+                <a href ="index.html"><img src="logo.jpg" alt = "Логотип порталу" width="200"></a></h1>
+                <span class ="name-of-portal" style="color: rgb(4, 44, 24)"> Портал 4kids</span>
+           
+        </header>
             <nav>
                 <ul>
                     <li><a href="index.html">Головна сторінка</a></li>
                     <li><a href ="#">Навчальні матеріали</a></li>
-                    <li><a href="courses.html">Наші курси</a></li>
+                    <li><a href="feedback.html">Зворотній зв'язок</a></li>
                 </ul>
             </nav>
-        </header>
         <main>
             <form >
             
@@ -34,15 +35,15 @@
                 <input type="number" name="child-age" id="child-age" placeholder="Введіть вік вашої дитини"><br>
                 <label for="child-gender">Стать дитини</label>
                 <input type="text" name="child-gender" id="child-gender" placeholder="Введіть стать дитини"><br>
-            </fieldset>
+            </fieldset><br>
             <label for="meta-feedback">Мета зворотнього зв'язку</label>
             <select name="meta-feedback" id="meta-feedback"><br>
                 <option value="collaboration">Співпраця</option>
                 <option value="complaint">Скарга на неякісний контент</option>
                 <option value="proposal">Пропозиція</option>
                 <option value="mistake">Наявність помилки</option>
-            </select>
-            <label for="details">Детально</label>
+            </select><br>
+            <label for="details">Детально</label><br>
             <textarea name="details" id="details" cols="30" rows="5"></textarea><br>
             <label for="checkbox">Даю дозвіл на обробку персональних даних</label>
             <input type="checkbox" name="checkbox" id="checkbox"><br>

@@ -4,14 +4,200 @@
         <meta charset="utf-8">
         <meta name="viewport" content ="width=device-width, initial-scale=1"> 
         <title>Портал 4kids</title>
+        <style>
+            *
+            {
+               font-family: 'Comic Sans MS', fantasy;;
+            }
+           
+            .logo 
+            {
+                position: absolute;
+                top: 150px; /* Додано */
+                left: 700px; /* Додано */
+                width: 200px; /* Додано - встав свій розмір */
+                z-index:10;
+                 
+            }
+            .name-of-portal
+            {
+                position: absolute;
+                display: block;
+                top: 400px;
+                left: 655px;
+                font-size: 40px;
+                text-align:center;
+            }
+            #meta-of-portal
+            {
+              position:absolute;
+              display:block;
+              
+              top:500px; 
+              left: 300px;
+              right: 100px;
+              margin: 10px;
+              background-color: rgb(94, 168, 119,0.7);
+              border: 3px solid rgb(29, 71, 43);
+              border-radius: 20px;
+              
+            }
+            #tasks-of-portal
+            {
+              position: absolute;
+              display:block;
+              
+             
+              margin:10px;
+              top:700px;
+              left:300px;
+              right:100px;
+              background-color: rgb(94, 168, 119,0.7);
+              border: 3px solid rgb(29, 71, 43); 
+              border-radius: 20px;
+            }
+            .scroll
+            {
+                max-height: 400px;
+                overflow-y: auto;
+            }
+            div[class^="adress"]
+            {
+               box-shadow:none; 
+               transition: box-shadow 2s ease-out;                 
+            }
+            div[class^="adress"]:hover
+            {
+               box-shadow:
+               3px 2px 2px 2px #cf8dcf, 
+               3px 3px 2px 2px #4daab1; 
+                
+            }
+            .general-info::first-letter
+            {
+                color:hsl(144, 60%, 24%) ;
+                font-size:xx-large;
+                text-shadow: 
+                3px 2px 2px hsl(178, 58%, 39%),
+                3px 2px 2px hsl(281, 31%, 54%);
+            }
+            nav
+            {
+               position: fixed;
+               width:78%;
+               top:0px;
+               margin-left: 280px;
+               margin-top:50px;
+               background-color: rgb(94, 168, 119,0.7);
+               border: 3px solid rgb(29, 71, 43);
+               padding-right:30px;
+               border-radius: 20px;
+               z-index: 11;
+            }
+            a:link
+            {
+                color:rgb(4, 44, 24) 
+            }
+            a:visited
+            {
+                color:rgb(27, 110, 82)
+            }
+            aside[class="button"]
+            {
+
+                position:fixed;
+                top:50px;
+                left:30px;
+                width: 150px;
+                height: 130px;
+                
+                border:#6fb496, solid, 2px;
+                background-color:#6fb496;
+                border-radius: 10%;
+                padding-top: 12px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom:20px;
+                box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+                2px 3px 3px 1px rgb(32, 188, 125);
+                z-index: 10;
+                
+            }
+            button[type="button"]
+            {
+                border-color: #6fb496;
+                font-size: 13px;
+                color:#dbdfe0;
+                border-radius: 15%;
+                padding: 10px;
+                background-color: rgb(27, 110, 82);
+                box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+                2px 3px 3px 1px rgb(32, 188, 125);
+            }
+            .ad-photo
+            {
+               position:absolute;
+               top:350px;
+               left:24px;
+            }
+            .ad-head
+            {
+               position:absolute;
+               display:block;
+               top:500px;
+               left:24px; 
+               font-weight: 800;
+               font-style: italic;
+               font-size: 20px;
+               width:200px;
+               text-align: left;
+
+            }
+            .ad-text
+            {
+               position:absolute;
+               display: block;
+               top:620px;
+               left:24px;  
+               float:left; 
+               font-size: 15px;
+               width:200px;
+               text-align: left;
+            }
+            main
+            {
+                position: absolute;
+                top:950px;
+
+            }
+            main:hover
+            {
+                transform:translateX(2%) ;
+            }
+            footer
+            {
+                position: absolute;
+                top:1700px;
+            }
+           
+            
+           
+            body
+            {
+                position: relative;
+               
+            }
+        </style>
     </head>
     <body>
         <header class="header">
             <h1 class="logo">
-                <a href ="index.html"><img src="logo.jpg" alt = "Логотип порталу" width="200"></a>
-                <span style="color: rgb(24, 114, 24)"> Портал 4kids</span>
-            </h1>
-            <nav>
+                <a href ="index.html"><img src="logo.jpg" alt = "Логотип порталу" width="200"></a></h1>
+                <h1 class="name-of-portal">
+                <span style="color: rgb(4, 44, 24)"> Портал 4kids</span></h1>
+           
+        </header>
+        <nav>
                 <ul>
                     <li>
                         <a href="#">Навчальні матеріали</a>
@@ -23,8 +209,9 @@
                         <a href ="feedback.html">Зворотній зв'язок</a>
                     </li>
                 </ul>
-            </nav>
-            </header>
+        </nav>
+            
+            
             <section id="meta-of-portal">
                 <h2>
                     <i>Наша мета:</i>
@@ -65,10 +252,22 @@
                     </ul>
                 </p>
             </section>
+            <aside class="button">
+                <p><button type = "button"><b>Зареєструватись</b></button></p>
+                <p><button type = "button"><b>Перейти до кабінету</b></button></p>
+            </aside>
+            <aside>
+                <p class="ad-photo"><a href="#"><img src="ad.jpg" alt="Фото реклами" width="200">
+                    <h3 class="ad-head"><span style="color:rgb(42, 41, 41)">Як обрати зубну щітку та пасту дитині: поради дитячого...</span></h3>
+                    <h5 class="ad-text"><span style="color:rgb(42, 41, 41)">У сьогоднішньому матеріалі ми підготували поради
+                         дитячої лікарки-стоматолога Лесі Шеренговської щодо вибору зубної ...</span></h4>
+                        </a>
+                        </p>
+            </aside>
             <main>
-                <article>
+                <article class="article-about-learning">
                     <h2>Загальна інформація про нас</h2>
-                    <p>Ми були засновані у <em>2024 році</em> з метою допомогти дітям дошкільного віку 
+                    <p class="general-info">Ми були засновані у <em>2024 році</em> з метою допомогти дітям дошкільного віку 
                         весело та цікаво готуватися до школи.
                         Наш портал створений командою педагогів, психологів та розробників, які об’єднали свої знання, 
                         щоб зробити навчання простим, безпечним і захопливим.
@@ -83,7 +282,7 @@
                         </p>
                         <p>Переглянути  <a href="#meta-of-portal">мету</a> або <a href="#tasks-of-portal">завдання</a> нашого порталу</p>
                         <p>Також можете прочитати нижче навчальний план зі списком тем з нашого загального курсу <b>"Всебічний курс по підготовці до школи"</b>, а перейшовши за <a href="courses.html">посиланням </a> можете переглянути інші курси, щоб знайти те, що по душі саме Вам.</p>
-
+                <div class="scroll">
                     <table border="2">
                         <caption>
                             Теми, що вивчатимуться на нашому курсі "Всебічний курс по підготовці до школи"
@@ -294,26 +493,20 @@
                             </tr>
                         </tfoot>
                     </table>
+                </div>
                 </article>
             </main>
-            <aside>
-                <p><button type = "button"><b>Зареєструватись</b></button></p>
-                <p><button type = "button"><b>Перейти до кабінету</b></button></p>
-                <p><a href="#"><img src="ad.jpg" alt="Фото реклами" width="200">
-                    <h3><span style="color:rgb(42, 41, 41)">Як обрати зубну щітку та пасту дитині: поради дитячого...</span></h3>
-                    <span style="color:rgb(42, 41, 41)">У сьогоднішньому матеріалі ми підготували поради
-                         дитячої лікарки-стоматолога Лесі Шеренговської щодо вибору зубної ...</span>
-                        </a>
-                        </p>
-            </aside>
+            
             <footer>
               <p>
                 <span style="color: rgb(84, 83, 83)">© 2016-25 ТОВ «КідУнівер». Всі права захищені.</span></p>
-               <p> <span style="color: rgb(84, 83, 83)"> Адреса: вул. Васильківська, 26</span></p>
-                <p><span style="color: rgb(84, 83, 83)">Контакти:</span>
-                <span style="color: rgb(84, 83, 83)">Менеджер Марина: +380123456789,</span>
-                <span style="color: rgb(84, 83, 83)">Менеджер Тетяна: +380957842666</span>
-              </p>  
+                <div class="adress-contacts">
+                    <p> <span style="color: rgb(84, 83, 83)"> Адреса: вул. Васильківська, 26</span></p>
+                    <p><span style="color: rgb(84, 83, 83)">Контакти:</span>
+                    <span style="color: rgb(84, 83, 83)">Менеджер Марина: +380123456789,</span>
+                    <span style="color: rgb(84, 83, 83)">Менеджер Тетяна: +380957842666</span>
+                    </p>  
+                </div>
               <p><a href="#"><span style="color:rgb(84, 83, 83)">Умови користування</span></a></p>
               <p><a href="#"><span style="color:rgb(84, 83,83)">Конфіденційність</span></a></p>
               <p><a href="#"><span style="color:rgb(84, 83, 83)">Допомога</span></a></p>
