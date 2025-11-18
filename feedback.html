@@ -44,11 +44,32 @@
                 <option value="mistake">Наявність помилки</option>
             </select><br>
             <label for="details">Детально</label><br>
+            <div class="tooltip-wrapper">
+            <div class="tooltip">Ваша думка для нас важлива! Конкретизуйте мету звернення, будь ласка.</div>
             <textarea name="details" id="details" cols="30" rows="5"></textarea><br>
+            </div>
             <label for="checkbox">Даю дозвіл на обробку персональних даних</label>
             <input type="checkbox" name="checkbox" id="checkbox"><br>
             <button type="submit">Надіслати</button>
             </form>
         </main>
+        <script>
+            var textArea=document.getElementById("details");
+            var tooltip=document.querySelector(".tooltip");
+            textArea.addEventListener("mouseover", function(){
+                textArea.style.border="2px solid rgb(4, 44, 24)";
+                textArea.style.backgroundColor="aliceblue";
+                textArea.style.borderRadius="10px";
+                textArea.style.boxShadow="2px 3px 2px 1px rgb(20, 93, 95), 2px 3px 3px 1px rgb(32, 188, 125)";
+                tooltip.style.display="block";
+            });
+            textArea.addEventListener("mouseout", function(){
+                tooltip.style.display="none";
+                textArea.style.border="none";
+                textArea.style.backgroundColor="white";
+                textArea.style.borderRadius="none";
+                textArea.style.boxShadow="none";
+            });
+        </script>
     </body>
 </html>

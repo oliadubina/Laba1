@@ -7,15 +7,15 @@
         <style>
             *
             {
-               font-family: 'Comic Sans MS', fantasy;;
+               font-family: 'Comic Sans MS', fantasy;
             }
            
             .logo 
             {
                 position: absolute;
-                top: 150px; /* Додано */
-                left: 700px; /* Додано */
-                width: 200px; /* Додано - встав свій розмір */
+                top: 150px; 
+                left: 700px; 
+                width: 200px; 
                 z-index:10;
                  
             }
@@ -139,6 +139,7 @@
                position:absolute;
                top:350px;
                left:24px;
+               
             }
             .ad-head
             {
@@ -170,18 +171,95 @@
                 top:950px;
 
             }
-            main:hover
+            article:hover
             {
                 transform:translateX(2%) ;
             }
             footer
             {
                 position: absolute;
-                top:1700px;
+                top:2070px;
             }
            
-            
            
+            .card {
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            perspective: 1000px; /* для 3D */
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .card:hover .card-inner{
+            transform: rotateY(180deg);
+        }
+        .author1, .back-author1{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        /* Передня сторона */
+        .author1 {
+            
+            padding: 10px;
+            border: 2px solid #6fb496;
+            border-radius: 10px;
+            background-color: #6fb496;
+            box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+                        2px 3px 3px 1px rgb(32, 188, 125);
+            text-align: center; 
+        }
+
+        /* Задня сторона */
+        .back-author1 {
+            
+            padding: 10px;
+            left: -20px;
+            font-size: 14px;
+            border: 2px solid #6fb496;
+            border-radius: 10px;
+            background-color: #6fb496;
+            box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+                        2px 3px 3px 1px rgb(32, 188, 125);
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            text-align: center;
+            
+        }
+        .back-author1 p{
+            font-style: italic;
+        }
+
+        /* Обертання */
+        
+            .author2 
+            {
+              position:absolute;  
+              width: 150px;
+              height: 200px;  
+              left: 200px;     
+              padding: 10px;
+              border: 2px solid #6fb496;
+              border-radius: 10px;
+              background-color: #6fb496;
+              box-shadow: 2px 3px 2px 1px rgb(20, 93, 95),
+              2px 3px 3px 1px rgb(32, 188, 125);
+              text-align: center; 
+            }
+
+
+            .img-for-author
+            {
+              padding-left:10px;
+            }
             body
             {
                 position: relative;
@@ -493,8 +571,28 @@
                             </tr>
                         </tfoot>
                     </table>
-                </div>
+                
                 </article>
+                  </div>
+                <h2>Автори курсів:</h2>
+                <div class="card">
+                    <div class="card-inner">
+                <div class="author1">
+                    <img class="img-for-author" src="author.jpg" alt="Фото автора" width="80px">
+                    <h3>Дубіна Ольга</h3>
+                </div>
+                <div class="back-author1">
+                    <h3>Цитата:</h3>
+                    <p>
+                    "Вчитель — це той, хто бачить потенціал, коли інші спостерігають за недоліками"</p>
+                </div>
+                </div>
+                </div>
+                <div class="author2">
+                     <img class="img-for-author" src="author2.webp" alt="Фото автора" width="80px">
+                    <h3>Білик Максим</h3>
+                </div>
+               
             </main>
             
             <footer>
@@ -511,5 +609,105 @@
               <p><a href="#"><span style="color:rgb(84, 83,83)">Конфіденційність</span></a></p>
               <p><a href="#"><span style="color:rgb(84, 83, 83)">Допомога</span></a></p>
             </footer>
+           <script>
+        const numberOfToys = 20;
+        const maxToysSpeed = 2;
+        const toysImages = [];
+        const toysUrls = [
+            'toy1-removebg-preview.png',
+            'toy2-removebg-preview.png',
+            'toy3-removebg-preview.png',
+            'toy4-removebg-preview.png'
+        ];
+
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '150px';
+        canvas.style.left = '300px';
+        canvas.style.right='100px';
+        canvas.style.zIndex='40';
+        canvas.style.pointerEvents = 'none';
+        document.body.appendChild(canvas);
+
+        
+        const metaOfPortal=document.querySelector('#meta-of-portal')
+        canvas.width=metaOfPortal.scrollWidth;
+        canvas.height = 350; 
+
+        const ctx = canvas.getContext('2d');
+        let loadedImages = 0;
+        let toys = [];
+
+        // Завантаження зображень
+        toysUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+            img.onload = () => {
+                loadedImages++;
+                if (loadedImages === toysUrls.length) {
+                    startAnimation();
+                }
+            };
+            toysImages.push(img);
+        });
+
+        function createToy() {
+            const randomImage = toysImages[Math.floor(Math.random() * toysImages.length)];
+            const width = Math.random() * 30 + 60;
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * -canvas.height, // починають зверху
+                speed: Math.random() * maxToysSpeed + 0.5,
+                width: width,
+                height: width,
+                image: randomImage
+            };
+        }
+
+        function drawToy(toy) {
+            ctx.drawImage(toy.image, toy.x, toy.y, toy.width, toy.height);
+        }
+
+        function updateToy(toy) {
+            toy.y += toy.speed;
+            if (toy.y > canvas.height) {
+                // якщо вийшла за межі — знову зверху
+                toy.y = -toy.height;
+                toy.x = Math.random() * canvas.width;
+            }
+        }
+
+        function startAnimation() {
+            toys = Array.from({ length: numberOfToys }, createToy);
+            animate();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            toys.forEach(toy => {
+                updateToy(toy);
+                drawToy(toy);
+            });
+            requestAnimationFrame(animate);
+        }
+
+        //--------task5-----//
+        var currentHours = new Date().getHours();
+        if(currentHours >= 6 && currentHours <= 21)
+        {
+            var elements = document.querySelectorAll('*');
+            for(var i = 0; i < elements.length; i++)
+            {
+                var bg = window.getComputedStyle(elements[i]).backgroundColor;
+                if(bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)')
+                {
+                    elements[i].style.filter = "brightness(1.4)";
+                }
+            }
+        }
+        
+        
+        </script>
+        
     </body>
 </html>

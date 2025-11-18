@@ -15,6 +15,7 @@
                 top:0px;  
                 text-align: center;
                 z-index: 1;
+               
                 
             }
             .name-of-portal
@@ -58,11 +59,12 @@
                 border-radius: 10%;
                 padding: 40px;
                 
+                
             }
           
             h2
             {
-                display:grid;
+                /*display:grid;*/
                 font-size: xx-large;
                 color:rgb(4, 44, 24)
                
@@ -105,6 +107,45 @@
             a:visited
             {
                 color:rgb(107, 15, 44)
+            }
+           .accordion
+           {
+                cursor:pointer;
+                transition: all 0.4s ease;
+                text-align: left;
+                font-size: 15px;
+                height: fit-content;
+                width: 300px;
+                border: none;
+                position: fixed;
+                /*top:200px;*/
+                right:20px;
+
+                
+           }
+          
+           .active, .accordion:hover{
+            background-color:rgb(15, 107, 107);
+           }
+           .panel{
+                background-color: aliceblue;
+                /*display: none;*/
+                max-height: 0;
+                opacity: 0; /* ДОДАТИ */
+                visibility: hidden; /* ДОДАТИ */
+                transition: max-height 0.4s ease, opacity 0.4s ease, visibility 0.4s; 
+                padding: 0 18px;
+                position: fixed;
+                right:20px;     
+                overflow: hiden;
+                font-size: 15px;
+                width: 264px;
+               
+                
+           }
+           .panel.show {
+            opacity: 1;
+            visibility: visible;
             }
            
            button
@@ -190,6 +231,8 @@
                             </a>
                         </p> 
         </aside>
+        
+
         <main>
             <h2>
                 Наші курси
@@ -701,4 +744,75 @@
         </main>
        
         </div>
+        <button class="accordion" id="co1">Всебічний курс по підготовці до школи</button>
+        <div class="panel">
+            <p>Цей курс включає всі основні напрямки, що потрібно розглянути, щоб дитина була готова до школи
+            </p>
+        </div>
+        <button class="accordion" id="co2">Математична мандрівка</button>
+        <div class="panel">
+            <p>
+                Цей курс охоплює базове та 
+                поглиблене вивчення математики.
+            </p>
+        </div>
+        <button class="accordion" id="co3">Світ навколо мене</button>
+        <div class="panel">
+            <p>
+                Цей курс охоплює базове вивчення складових довкілля.
+            </p>
+        </div>
+        <button class="accordion" id="co4">Мовленнєвий розвиток</button>
+        <div class="panel">
+            <p>
+                Цей курс охоплює базове вивчення букв,складів, навчання принципів читання.
+            </p>
+        </div>
+        <button class="accordion" id="co5">Я готуюсь до школи</button>
+        <div class="panel">
+            <p>
+                Цей курс охоплює підготовку до режиму навчання, розвиток концентрації та пам'яті.
+            </p>
+        </div>
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+
+            function updatePositions() {
+                var currentTop = 200;
+                
+                for(var i = 0; i < acc.length; i++) {
+                    acc[i].style.top = currentTop + "px";
+                    
+                    var panel = acc[i].nextElementSibling;
+                    var buttonHeight = acc[i].offsetHeight;
+                    
+                    currentTop += buttonHeight + 5;
+                    
+                    if(panel && panel.classList.contains('show')) {
+                        panel.style.top = currentTop + "px";
+                        currentTop += panel.scrollHeight + 10;
+                    }
+                }
+            }
+
+            for(var i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function(){
+                    this.classList.toggle("active");
+                    
+                    var panel = this.nextElementSibling;
+                    
+                    if(panel.classList.contains('show')) {
+                        panel.classList.remove('show'); // Забрати клас
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.classList.add('show'); // Додати клас
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                    
+                    setTimeout(updatePositions, 10);
+                });
+            }
+
+            updatePositions();
+</script>
     </body>
